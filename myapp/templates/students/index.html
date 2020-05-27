@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+<table border="2">
+        <tbody>
+            <tr>
+                <td><a href="{{url_for('addStudent')}}">add</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{url_for('allGrade', sorted = 'bygrade')}}">grades</a></td>
+            </tr>
+        </tbody>
+</table>
+</br>
+<table border="1">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>MAJOR</th>
+            <th>EMAIL</th>
+            <th>CLASS</th>
+            <th>GPA</th>
+            <th>GRADE</th>
+            <th>OPTIONS</th>
+        </tr>
+
+        {% for student in students %}
+            <tr>
+                <td>{{ student.id }}</td>
+                <td>{{ student.first_name + ' ' + student.last_name }}</td>
+                <td>{{ student.major }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.class_id }}</td>
+                <td>{{ student.gpa }}</td>
+                <td><a href="{{ url_for('queryGrade', sid = student.id) }}">grade</a></td>
+                <td>
+                    <button onclick="window.location.href='{{ url_for('deleteStudent', id = student.id) }}'">delete</button>
+                    <button onclick="window.location.href='{{ url_for('updateStudent', id = student.id) }}'">update</button>
+                </td>
+            </tr>
+        {% endfor %}
+</table>
+{% endblock %}

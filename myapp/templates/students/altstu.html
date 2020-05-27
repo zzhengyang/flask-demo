@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+<form method="post">
+    <table>
+        <tbody>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" value="{{ student.first_name }}" name="first_name">
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" value="{{ student.last_name }}" name="last_name">
+                </td>
+            </tr>
+            <tr>
+                <td>Major:</td>
+                <td><input type="text" value="{{ student.major }}" name="major">
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" value="{{ student.email }}" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>Class:</td>
+                <td><input type="text" value="{{ student.class_id }}" name="class_id">
+                </td>
+            </tr>
+                <td></td>
+                <td><input type="submit" value="update"></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<a href="{{url_for('index')}}">back</a>
+{% endblock %}
