@@ -7,8 +7,7 @@ from myapp.model.Grade import Grade
 from myapp.model.Student import Student
 from myapp import app, db
 
-from flask import request,render_template,flash,abort,url_for,redirect,session,Flask,g
-
+from flask import render_template, flash, request, redirect, url_for
 
 @app.route('/grades/<sorted>')
 def allGrade(sorted):

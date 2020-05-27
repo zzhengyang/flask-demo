@@ -1,4 +1,0 @@
-1 JOE haha cs joe@gmail.com 1 0.0
-2 Tom ho cs tom@gmail.com 2 0.0
-3 goo ha cs goo@gmail.com 1 0.0
-4 hdhd 22 cs hdhd@gmail.com 1 0.0

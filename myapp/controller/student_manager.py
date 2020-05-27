@@ -4,10 +4,9 @@
 # from flask.ext.login import login_required, login_user, logout_user
 
 from myapp.model.Student import Student
-from myapp.model.Grade import Grade
 from myapp import app, db
 
-from flask import request,render_template,flash,abort,url_for,redirect,session,Flask,g
+from flask import request,render_template,flash,url_for,redirect
 
 @app.route('/')
 def index():
