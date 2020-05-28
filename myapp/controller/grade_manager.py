@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-# from flask.ext.login import login_required, login_user, logout_user
-
 from myapp.model.Grade import Grade
 from myapp.model.Student import Student
 from myapp import app, db
@@ -28,7 +26,11 @@ def allGrade(sorted):
 @app.route('/grade/<sid>')
 def queryGrade(sid):
     grades = Grade.query.filter(Grade.student_id == sid).order_by(Grade.grade.desc()).all()
-
+    for index in range(len(grades)):
+        nameQueryer = Student.query.with_entities(Student.first_name, Student.last_name).filter(
+            Student.id == grades[index].student_id).first()
+        name = nameQueryer[0] + ' ' + nameQueryer[1] if nameQueryer else ''
+        grades[index].name = name
     return render_template('grade/index.html', grades=grades)
 
 @app.route('/grade/add', methods=['GET', 'POST'])

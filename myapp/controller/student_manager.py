@@ -4,6 +4,7 @@
 # from flask.ext.login import login_required, login_user, logout_user
 
 from myapp.model.Student import Student
+from myapp.model.Grade import Grade
 from myapp import app, db
 
 from flask import request,render_template,flash,url_for,redirect
@@ -23,9 +24,10 @@ def index():
 @app.route('/stu/delete/<id>')
 def deleteStudent(id):
     student = Student.query.filter(Student.id == id).first()
+    grades = Grade.query.filter(Grade.student_id == id).delete()
     db.session.delete(student)
     db.session.commit()
-    flash('Student was successfully deleted')
+    flash('Student and his grades was successfully deleted')
     return redirect(url_for('index'))
 
 
