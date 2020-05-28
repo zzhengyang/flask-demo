@@ -8,4 +8,9 @@ class BaseConfig(object):
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://dbuser:123456@127.0.0.1:3306/ningbo"
 
 class ProductionConfig(BaseConfig):
-    DATABASE_URI = 'mysql+pymysql://dbuser:123456@127.0.0.1:3306/ningbo'
+    SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+            username="liuzh1135",
+            password="123456",
+            hostname="liuzh1135.mysql.pythonanywhere-services.com",
+            databasename="liuzh1135$ningbo",
+        )
